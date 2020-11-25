@@ -26,3 +26,4 @@
 ::1 - - [08/Sep/2020:06:32:10 +0000] "DELETE /goals/5f57256384f593260becbadc HTTP/1.1" 200 27 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 ::1 - - [08/Sep/2020:06:32:11 +0000] "GET /goals HTTP/1.1" 200 12 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 ::1 - - [08/Sep/2020:06:32:12 +0000] "GET /goals HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+::ffff:172.24.0.1 - - [25/Nov/2020:15:29:15 +0000] "GET /goals HTTP/1.1" 200 12 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36"

@@ -23,13 +23,22 @@ services:
       - '80:80'
     volumes:
       - logs:/apps/logs
-      - ./backend:/app # Bind Mount
-      - /app/node_modules # Anonymouse Volumes don't need to be added to the list below.
+      - ./backend:/app # Bind Mount - doesn't need added to the volumes list.
+      - /app/node_modules # Anonymouse Volumes don't need to be added to the list either.
     env_file:
       - ./env/backend.env
     depends_on:
       - mongodb
-#  frontend:
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/src:/app/src # Bind Mount - see above.
+    stdin_open: true # Required for starting in interactive mode (-it).
+    tty: true # Required for starting in interactive mode (-it).
+    depends_on:
+      - backend
 
 volumes:
   data:
