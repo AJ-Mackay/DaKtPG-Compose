@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  mongodb:
+    image: 'mongo'
+    volumes: 
+      - data:/data/db
+    ### Note - For Security env can be added to .gitignore - use syntax below ###
+    # env_file:
+    #   - ./env/mongo.env
+    environment: 
+      # - MONGO_INITDB_ROOT_USERNAME=paul (alternate)
+      MONGO_INITDB_ROOT_USERNAME: paul # Key:Value pairs are yaml objects, don't require a dash.
+      MONGO_INITDB_ROOT_PASSWORD: secret
+#  backend:
+#  frontend:
+
+volumes:
+  data:
