@@ -8,11 +8,30 @@ services:
     # env_file:
     #   - ./env/mongo.env
     environment: 
-      # - MONGO_INITDB_ROOT_USERNAME=paul (alternate)
+      # - MONGO_INITDB_ROOT_USERNAME=paul (alternate method)
       MONGO_INITDB_ROOT_USERNAME: paul # Key:Value pairs are yaml objects, don't require a dash.
       MONGO_INITDB_ROOT_PASSWORD: secret
-#  backend:
+  backend:
+    build: ./backend
+  ### Note - Alternative version - can be used with projects where files are on different levels ###
+  # build:
+  #   context: ./backend # Must be set to somewhere that ALL the required files live.
+  #   dockerfile: Dockerfile # Can be used if Dockerfile has a different name e.g. Dockerfile-dev
+  #   args: (If used in the Dockerfile)
+  #     some-arg: 1
+    ports: 
+      - '80:80'
+    volumes:
+      - logs:/apps/logs
+      - ./backend:/app # Bind Mount
+      - /app/node_modules # Anonymouse Volumes don't need to be added to the list below.
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
 #  frontend:
 
 volumes:
   data:
+  logs:
+# Networks are created automatically everything in the compose file is added automatically too.
