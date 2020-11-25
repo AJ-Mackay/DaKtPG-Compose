@@ -4,6 +4,7 @@ services:
     image: 'mongo'
     volumes: 
       - data:/data/db
+    container_name: mongodb # Forces the compose file to use the name you supply.
     ### Note - For Security env can be added to .gitignore - use syntax below ###
     # env_file:
     #   - ./env/mongo.env
